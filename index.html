@@ -3,60 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anny Gold | Developer & Creator</title>
+    <title>Anny Gold | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg: #0b0f1a;
             --card-bg: #161b2b;
-            --primary: #fbbf24; /* Gold Accent */
-            --accent: #f59e0b;
+            --primary: #fbbf24;
             --text: #f8fafc;
             --gray: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--bg); color: var(--text); overflow-x: hidden; }
 
         /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 8%; background: rgba(11, 15, 26, 0.95);
-            backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 1rem 10%; background: #0b0f1a;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 2px solid var(--primary);
         }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
-        .nav-links a { text-decoration: none; color: var(--text); margin-left: 1.5rem; font-size: 0.85rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
-        .nav-links a:hover { color: var(--primary); }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .nav-links button { 
+            background: none; border: none; color: var(--text); 
+            margin-left: 1.5rem; font-weight: 600; cursor: pointer; transition: 0.3s;
+        }
+        .nav-links button:hover { color: var(--primary); }
 
-        /* Page Logic */
-        .page { display: none; padding: 5rem 8%; min-height: 90vh; }
-        .page.active { display: block; animation: fadeIn 0.5s ease-in-out; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Page Display Logic */
+        .page { display: none; padding: 5rem 10%; min-height: 85vh; }
+        .page.active { display: block; }
 
         /* Hero */
-        #home { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        h1 { font-size: 4rem; margin-bottom: 1rem; }
-        h1 span { color: var(--primary); }
-        .hero-p { font-size: 1.2rem; color: var(--gray); max-width: 700px; margin-bottom: 2rem; }
+        #home { text-align: center; }
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        span { color: var(--primary); }
 
         /* Buttons */
-        .btn { background: var(--primary); color: #000; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #fff; transform: translateY(-3px); }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+        .btn { 
+            background: var(--primary); color: #000; padding: 1rem 2rem; 
+            border-radius: 8px; font-weight: 700; cursor: pointer; border: none;
+            display: inline-block; margin: 10px; text-decoration: none;
+        }
+        .btn:hover { transform: translateY(-3px); background: #fff; }
 
-        /* Skills/Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .skill-list { list-style: none; margin-top: 1rem; }
-        .skill-list li { color: var(--gray); font-size: 0.9rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
-        .skill-list li::before { content: "→"; color: var(--primary); margin-right: 8px; }
+        /* Grid & Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid #2d3748; }
+        .card h3 { color: var(--primary); margin-bottom: 1rem; }
+        .card ul { list-style: none; color: var(--gray); }
+        .card li { margin-bottom: 0.5rem; }
 
-        footer { padding: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: var(--gray); }
-
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #2d3748; color: var(--gray); }
     </style>
 </head>
 <body>
@@ -64,86 +63,103 @@
     <nav>
         <div class="logo">ANNY GOLD</div>
         <div class="nav-links">
-            <a onclick="showPage('home')">Home</a>
-            <a onclick="showPage('skills')">Skills</a>
-            <a onclick="showPage('portfolio')">Portfolio</a>
-            <a onclick="showPage('contact')">Contact</a>
-            <a onclick="showPage('contact')" class="btn" style="padding: 0.5rem 1rem; margin-left: 20px;">Hire Me</a>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('skills')">Skills</button>
+            <button onclick="showPage('portfolio')">Portfolio</button>
+            <button onclick="showPage('contact')" style="background:var(--primary); color:#000; padding:5px 15px; border-radius:5px;">Hire Me</button>
         </div>
     </nav>
 
     <section id="home" class="page active">
-        <h1>Hi, I'm <span>Anny Gold</span></h1>
-        <p class="hero-p">Full-stack developer, App architect, and Content Strategist. I turn complex problems into digital solutions.</p>
-        <div>
-            <button class="btn" onclick="showPage('skills')">Explore My Skills</button>
-            <button class="btn btn-outline" onclick="showPage('portfolio')">View Work</button>
-        </div>
+        <h1>Welcome to <span>Anny Gold</span> Studio</h1>
+        <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 2rem;">Full-Stack Developer & Content Strategist specializing in App Logic and Cyber Security.</p>
+        <button class="btn" onclick="showPage('skills')">View My Skills</button>
+        <button class="btn" style="background:none; border:2px solid var(--primary); color:var(--primary);" onclick="showPage('portfolio')">See My Work</button>
     </section>
 
     <section id="skills" class="page">
-        <h2 style="font-size: 2.5rem; text-align: center;">Technical Expertise</h2>
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Technical <span>Expertise</span></h2>
         <div class="grid">
             <div class="card">
-                <i class="fas fa-code"></i>
-                <h3>App Development</h3>
-                <ul class="skill-list">
-                    <li>No-Code Architecture (Bubble/Softr)</li>
-                    <li>Frontend: HTML5, CSS3, JS</li>
-                    <li>Backend: Firebase Integration</li>
-                    <li>Quiz & E-commerce Logic</li>
+                <h3><i class="fas fa-terminal"></i> Security & Termux</h3>
+                <ul>
+                    <li>✔ Linux Command Line Mastery</li>
+                    <li>✔ Automated Vulnerability Scanning</li>
+                    <li>✔ Network Reconnaissance</li>
+                    <li>✔ GitHub Workflow Automation</li>
                 </ul>
             </div>
             <div class="card">
-                <i class="fas fa-terminal"></i>
-                <h3>Security & Linux</h3>
-                <ul class="skill-list">
-                    <li>Termux Environment Setup</li>
-                    <li>Automated Vulnerability Scanning</li>
-                    <li>Git/GitHub Workflow</li>
-                    <li>API Testing & Security</li>
+                <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                <ul>
+                    <li>✔ No-Code App Architecture</li>
+                    <li>✔ Quiz & Rewards Logic</li>
+                    <li>✔ Firebase Database Integration</li>
+                    <li>✔ Real-time Data Management</li>
                 </ul>
             </div>
             <div class="card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Creative Design</h3>
-                <ul class="skill-list">
-                    <li>Professional Logo Branding</li>
-                    <li>UI/UX Wireframing</li>
-                    <li>Booklet & Print Design</li>
-                    <li>Social Media Strategy</li>
+                <h3><i class="fas fa-video"></i> Digital Strategy</h3>
+                <ul>
+                    <li>✔ YouTube Shorts Analytics</li>
+                    <li>✔ Audience Retention Optimization</li>
+                    <li>✔ Global Brand Positioning</li>
+                    <li>✔ High-Engagement Scripting</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="page">
-        <h2 style="font-size: 2.5rem;">Anny Gold YouTube & Labs</h2>
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Featured <span>Projects</span></h2>
         <div class="grid">
             <div class="card">
-                <h3>Anny Gold Channel</h3>
-                <p>Scaling digital content with over 500k views globally.</p>
+                <h3 style="color:#fff">Quiz Master App</h3>
+                <p style="color:var(--gray)">A fully functional app that manages 20+ questions with wrong-answer debugging and user scores.</p>
             </div>
             <div class="card">
-                <h3>Money Maker App</h3>
-                <p>A quiz-based earning platform built with custom logic.</p>
+                <h3 style="color:#fff">Anny Gold Channel</h3>
+                <p style="color:var(--gray)">YouTube strategy that reached 500k+ views across the US, UK, and Philippines.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:#fff">GNL Architect Branding</h3>
+                <p style="color:var(--gray)">Professional logo and corporate identity design for architectural firms.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="page">
-        <h2 style="text-align: center; font-size: 2.5rem;">Start a Project</h2>
-        <div style="max-width: 500px; margin: 3rem auto; background: var(--card-bg); padding: 2rem; border-radius: 12px; text-align: center;">
-            <p style="color: var(--primary); font-weight: bold; margin-bottom: 1rem;">Direct Email:</p>
-            <h3>annygold957@gmail.com</h3>
-            <p style="margin-top: 2rem; color: var(--gray);">Lagos, Nigeria | Remote</p>
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Get In <span>Touch</span></h2>
+        <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 3rem; border-radius: 15px; text-align: center; border: 1px solid var(--primary);">
+            <h3 style="margin-bottom: 1rem;">Let's Build Something Great</h3>
+            <p style="color: var(--gray); margin-bottom: 2rem;">Available for development, security audits, and content consultations.</p>
+            <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">annygold957@gmail.com</p>
+            <br>
+            <p>Lagos, Nigeria | Remote Worldwide</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Anny Gold. All Rights Reserved.</p>
+        <p>&copy; 2026 Anny Gold. Built for the Internet.</p>
     </footer>
 
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList
+            // 1. Hide all sections with class 'page'
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => {
+                p.style.display = 'none';
+            });
+
+            // 2. Show the specific page by ID
+            const targetPage = document.getElementById(pageId);
+            if(targetPage) {
+                targetPage.style.display = 'block';
+            }
+            
+            // 3. Scroll back to top
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
