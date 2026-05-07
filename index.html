@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anny Gold | Developer & Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2b;
+            --primary: #fbbf24; /* Gold Accent */
+            --accent: #f59e0b;
+            --text: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 8%; background: rgba(11, 15, 26, 0.95);
+            backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--text); margin-left: 1.5rem; font-size: 0.85rem; font-weight: 600; transition: 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Page Logic */
+        .page { display: none; padding: 5rem 8%; min-height: 90vh; }
+        .page.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Hero */
+        #home { text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        h1 { font-size: 4rem; margin-bottom: 1rem; }
+        h1 span { color: var(--primary); }
+        .hero-p { font-size: 1.2rem; color: var(--gray); max-width: 700px; margin-bottom: 2rem; }
+
+        /* Buttons */
+        .btn { background: var(--primary); color: #000; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #fff; transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
+
+        /* Skills/Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .skill-list { list-style: none; margin-top: 1rem; }
+        .skill-list li { color: var(--gray); font-size: 0.9rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
+        .skill-list li::before { content: "→"; color: var(--primary); margin-right: 8px; }
+
+        footer { padding: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: var(--gray); }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ANNY GOLD</div>
+        <div class="nav-links">
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('skills')">Skills</a>
+            <a onclick="showPage('portfolio')">Portfolio</a>
+            <a onclick="showPage('contact')">Contact</a>
+            <a onclick="showPage('contact')" class="btn" style="padding: 0.5rem 1rem; margin-left: 20px;">Hire Me</a>
+        </div>
+    </nav>
+
+    <section id="home" class="page active">
+        <h1>Hi, I'm <span>Anny Gold</span></h1>
+        <p class="hero-p">Full-stack developer, App architect, and Content Strategist. I turn complex problems into digital solutions.</p>
+        <div>
+            <button class="btn" onclick="showPage('skills')">Explore My Skills</button>
+            <button class="btn btn-outline" onclick="showPage('portfolio')">View Work</button>
+        </div>
+    </section>
+
+    <section id="skills" class="page">
+        <h2 style="font-size: 2.5rem; text-align: center;">Technical Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>App Development</h3>
+                <ul class="skill-list">
+                    <li>No-Code Architecture (Bubble/Softr)</li>
+                    <li>Frontend: HTML5, CSS3, JS</li>
+                    <li>Backend: Firebase Integration</li>
+                    <li>Quiz & E-commerce Logic</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-terminal"></i>
+                <h3>Security & Linux</h3>
+                <ul class="skill-list">
+                    <li>Termux Environment Setup</li>
+                    <li>Automated Vulnerability Scanning</li>
+                    <li>Git/GitHub Workflow</li>
+                    <li>API Testing & Security</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Creative Design</h3>
+                <ul class="skill-list">
+                    <li>Professional Logo Branding</li>
+                    <li>UI/UX Wireframing</li>
+                    <li>Booklet & Print Design</li>
+                    <li>Social Media Strategy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="page">
+        <h2 style="font-size: 2.5rem;">Anny Gold YouTube & Labs</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Anny Gold Channel</h3>
+                <p>Scaling digital content with over 500k views globally.</p>
+            </div>
+            <div class="card">
+                <h3>Money Maker App</h3>
+                <p>A quiz-based earning platform built with custom logic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page">
+        <h2 style="text-align: center; font-size: 2.5rem;">Start a Project</h2>
+        <div style="max-width: 500px; margin: 3rem auto; background: var(--card-bg); padding: 2rem; border-radius: 12px; text-align: center;">
+            <p style="color: var(--primary); font-weight: bold; margin-bottom: 1rem;">Direct Email:</p>
+            <h3>annygold957@gmail.com</h3>
+            <p style="margin-top: 2rem; color: var(--gray);">Lagos, Nigeria | Remote</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Anny Gold. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList
